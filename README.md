@@ -1,6 +1,6 @@
 # Omnichain-Deployer
 
-Hardhat plugin for deploying contracts to same addresses on EVM chains. Being built for EVM chains to make development easier on Layer 2 blockchains.
+Hardhat plugin for deploying contracts to same addresses on EVM chains. Being built for EVM chains to make development easier on Superchains and OP Stack.
 
 ## What
 
