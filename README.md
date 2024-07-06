@@ -105,31 +105,56 @@ module.exports = {
 
 ## Usage
 
-First of all have a funder account which has funds on each wanted network. Then configure the hardhat.config file.
+#### 1. First of all have a funder account which has funds on each wanted network. Then configure the hardhat.config file.
 
-Later run
+#### 2. Generating and Funding Deployer Account
+- Generate Deployer Account:
+Use the generate-deployer command to create and encrypt a deployer account, , copy its private key and use it in hardhat.config.
 
 ```
 npx hardhat generate-deployer
 ```
 
-Generate a fresh EOA, copy its private key and use it in hardhat.config.
-
-If private key of deployer is lost somehow run 
+- If private key of deployer is lost somehow run 
 
 ```
 npx hardhat get-private-key --account <path to the wallet json file>
 ```
-
+- Fund Deployer Account:
 Deployer needs gas to deploy the contract. To fund deployer run
 
 ```
 npx hardhat fund-deployer --contract-name <name of the contract> CONSTRUCTOR_ARGS
 ```
 
-Fund the deployer account and deployer is ready to deploy contracts
+- Fund the deployer account and deployer is ready to deploy contracts
 
-To deploy contract to all chains run 
+#### 3. Deploying Contracts
+
+- Write Deployment Script:
+Create a deployment script (e.g., deploy.js).
+
+```
+async function main() {
+  const [deployer] = await ethers.getSigners();
+  console.log("Deploying contracts with the account:", deployer.address);
+
+  const Contract = await ethers.getContractFactory("YourContract");
+  const contract = await Contract.deploy(/* constructor arguments */);
+
+  console.log("Contract deployed to:", contract.address);
+}
+
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+```
+
+-Omnichain Deploy:
+To deploy contract on all chains run 
 
 ```
 npx hardhat omnichain-deploy --path <Path to deploy script>
@@ -137,8 +162,13 @@ npx hardhat omnichain-deploy --path <Path to deploy script>
 
 This will run deploy script on all chains.
 
-After deployment to verify contract on all network explorers run
+#### 4. Verifying Contracts
+
+- After deployment to verify contract on all network explorers run
 
 ```
 npx hardhat omnichain-verify --address <Address of the deployed contract> CONSTRUCTOR_ARGS
 ```
+
+### Conclusion
+Omnichain Deployer streamlines the process of deploying and verifying smart contracts across multiple EVM-compatible networks. By automating key steps and providing a user-friendly CLI, it simplifies cross-chain dApp development, making it as straightforward as single-network deployment. Follow the steps above to implement Omnichain Deployer and enhance your multi-network development workflow.
