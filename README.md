@@ -96,8 +96,8 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      optimisticGoerli: <optimism explorer api key>,
-      baseGoerli: <base explorer api key>,
+      fraxtal: <fraxtal explorer api key>,
+      optimism: <optimism explorer api key>,
     }
   },
 };
