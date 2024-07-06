@@ -83,4 +83,17 @@ Deployment Process:
 - Utilizes ethers library to estimate gas and obtain current gas prices from network providers.
 - Ensures sufficient funds for deployment by calculating and sending 1.5 times the estimated deployment cost.
 
+### Whats Next
+
+#### 1. Feature Enhancements:
+
+- Advanced Gas Optimization: Implement more sophisticated gas optimization algorithms to minimize costs and improve deployment efficiency.
+- Multi-Signature Support: Add support for deploying contracts using multi-signature wallets for enhanced security.
+
+#### 2. User Experience Improvements:
+- GUI Development: Develop a graphical user interface (GUI) to complement the CLI, making it more accessible for users who prefer a visual interface.
+
+#### 5. Advanced Deployment Features:
+- Rollback Mechanism: Develop a feature to allow users to rollback deployments in case of failures or issues.
+
 Omnichain Deployer integrates seamlessly with existing Hardhat and ethers workflows, providing a streamlined solution for multi-network smart contract deployment. By automating key processes, it reduces manual effort, minimizes errors, and enhances the efficiency and reliability of cross-chain dApp development.
