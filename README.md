@@ -134,7 +134,7 @@ npx hardhat fund-deployer --contract-name <name of the contract> CONSTRUCTOR_ARG
 - Write Deployment Script:
 Create a deployment script (e.g., deploy.js).
 
-```
+```js
 async function main() {
   const [deployer] = await ethers.getSigners();
   console.log("Deploying contracts with the account:", deployer.address);
@@ -153,7 +153,7 @@ main()
   });
 ```
 
--Omnichain Deploy:
+- Omnichain Deploy:
 To deploy contract on all chains run 
 
 ```
